@@ -66,7 +66,7 @@ class RequestReceived
                 auth()->authenticate();
                 $user = auth()->user();
             } catch (\Exception $exception) {
-                Log::channel(config('laravel-request-tracker.log_channel'))->error('user can\'t authenticate ', [
+                Log::channel(config('laravel-request-tracker.log_channel'))->error($exception->getMessage(), [
                     'message' => $exception->getMessage(),
                     'file' => $exception->getFile(),
                     'line' => $exception->getLine(),
