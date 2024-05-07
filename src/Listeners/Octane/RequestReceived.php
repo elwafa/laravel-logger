@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Laravel\Octane\Events\RequestReceived as OctaneRequestReceived;
 
-use function config;
-
 class RequestReceived
 {
     private string $trackerId;
