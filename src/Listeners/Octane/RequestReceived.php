@@ -2,13 +2,14 @@
 
 namespace Elwafa\LaravelRequestTracker\Listeners\Octane;
 
-use function config;
 use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Laravel\Octane\Events\RequestReceived as OctaneRequestReceived;
+
+use function config;
 
 class RequestReceived
 {
@@ -62,7 +63,7 @@ class RequestReceived
     private function prepareRequestData(Request $request): array
     {
         $user = $request->user();
-        if (is_null($user)){
+        if (is_null($user)) {
             try {
                 auth()->authenticate();
                 $user = auth()->user();
@@ -76,6 +77,7 @@ class RequestReceived
                 $user = null;
             }
         }
+
         return [
             'tracker_request_response_id' => $this->trackerId,
             'tracker_main_project_name' => config('laravel-request-tracker.main_project_name'),
