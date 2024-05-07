@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Laravel\Octane\Events\RequestReceived as OctaneRequestReceived;
 
-use function config;
-
 class RequestReceived
 {
     private string $trackerId;
@@ -68,7 +66,7 @@ class RequestReceived
                 auth()->authenticate();
                 $user = auth()->user();
             } catch (\Exception $exception) {
-                Log::channel(config('laravel-request-tracker.log_channel'))->error('user can\'t authenticate ', [
+                Log::channel(config('laravel-request-tracker.log_channel'))->error($exception->getMessage(), [
                     'message' => $exception->getMessage(),
                     'file' => $exception->getFile(),
                     'line' => $exception->getLine(),
