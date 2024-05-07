@@ -5,7 +5,6 @@ namespace Elwafa\LaravelRequestTracker\Listeners\Octane;
 use function config;
 use Exception;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
