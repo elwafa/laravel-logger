@@ -2,7 +2,6 @@
 
 namespace Elwafa\LaravelRequestTracker\Listeners\Octane;
 
-use function config;
 use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
