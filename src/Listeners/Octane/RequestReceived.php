@@ -63,7 +63,7 @@ class RequestReceived
         $user = $request->user();
         if (is_null($user)) {
             try {
-                auth()->authenticate();
+                auth()->guard('api')->authenticate();
                 $user = auth()->user();
             } catch (\Exception $exception) {
                 Log::channel(config('laravel-request-tracker.log_channel'))->error($exception->getMessage(), [
